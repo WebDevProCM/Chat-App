@@ -5,44 +5,179 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat App</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+    <div class="title">
+      <h3 class="chat-app">Chat App</h3>
+      <button type="button" class="btn btn-outline-primary">Leave</button>
+    </div>
     <div class="main">
         <div class="sidebar">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-              
-                    <ul class="navbar-nav flex-column me-auto mb-2 mb-lg-0">
-                      <li class="nav-item">
-                          <form class="d-flex" role="search">
-                              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                              <button class="btn btn-outline-success" type="submit">Search</button>
-                          </form>
-                      </li> 
-                      <li class="nav-item">
-                          <a class="navbar-brand" href="#">Hidden brand</a>
-                      </li> 
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                      </li>
-                    </ul>
+          <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        
+              <ul class="navbar-nav flex-column me-auto mb-2 mb-lg-0">
+                <!-- <li class="nav-item logo">
+                  <h3>Chat App</h3>
+                </li>  -->
+                <li class="nav-item search">
+                  <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                  </form>
+                </li> 
+                <li class="nav-item">
+                  <div class="user-chat">
+                    <div class="user-chat-div">
+                      <img src="/images/users/defaultDP.png" alt="user-profile-picture">
+                      <h5>Name</h5>
+                    </div>
+                    <p>12.05pm</p>
                   </div>
-                </div>
-            </nav>
+                </li>
+                <li class="nav-item">
+                  <div class="user-chat">
+                    <div class="user-chat-div">
+                      <img src="/images/users/defaultDP.png" alt="user-profile-picture">
+                      <h5>Name</h5>
+                    </div>
+                    <p>12.05pm</p>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div class="user-chat">
+                    <div class="user-chat-div">
+                      <img src="/images/users/defaultDP.png" alt="user-profile-picture">
+                      <h5>Name</h5>
+                    </div>
+                    <p>12.05pm</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
         <div class="chat_body">
-            helll
+          <div class="message-div">
+            <div class="message-div__body">
+              <img src="/images/users/defaultDP.png" alt="user-icon">
+              <div class="message-info">
+                <p class="user-name">Smith</p>
+                <p class="user-message">dasdasdsadasdasdasdasdsadsaadasdasdsadasdsadasdadaasdsadasdsadasdsasdadaa
+                  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadasdasdsadasdasdasdasdsadsaadasdasdsa
+                  dasdsadasdadaasdsadasdsadasdsasdadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </p>
+              </div>
+            </div>
+            <p class="message-time">12.00pm</p>
+          </div>
+          <div class="message-div">
+            <div class="message-div__body">
+              <img src="/images/users/defaultDP.png" alt="user-icon">
+              <div class="message-info">
+                <p class="user-name">Smith</p>
+                <p class="user-message">dasdasdsadasdasdasdasdsadsaadasdasdsadasdsadasdadaasdsadasdsadasdsasdadaa
+                  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadasdasdsadasdasdasdasdsadsaadasdasdsa
+                  dasdsadasdadaasdsadasdsadasdsasdadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </p>
+              </div>
+            </div>
+            <p class="message-time">12.00pm</p>
+          </div>
+          <div class="message-div">
+            <div class="message-div__body">
+              <img src="/images/users/defaultDP.png" alt="user-icon">
+              <div class="message-info">
+                <p class="user-name">Smith</p>
+                <p class="user-message">dasdasdsadasdasdasdasdsadsaadasdasdsadasdsadasdadaasdsadasdsadasdsasdadaa
+                  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadasdasdsadasdasdasdasdsadsaadasdasdsa
+                  dasdsadasdadaasdsadasdsadasdsasdadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </p>
+              </div>
+            </div>
+            <p class="message-time">12.00pm</p>
+          </div>
+          <div class="message-div">
+            <div class="message-div__body">
+              <img src="/images/users/defaultDP.png" alt="user-icon">
+              <div class="message-info">
+                <p class="user-name">Smith</p>
+                <p class="user-message">dasdasdsadasdasdasdasdsadsaadasdasdsadasdsadasdadaasdsadasdsadasdsasdadaa
+                  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadasdasdsadasdasdasdasdsadsaadasdasdsa
+                  dasdsadasdadaasdsadasdsadasdsasdadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </p>
+              </div>
+            </div>
+            <p class="message-time">12.00pm</p>
+          </div>
+          <div class="message-div">
+            <div class="message-div__body">
+              <img src="/images/users/defaultDP.png" alt="user-icon">
+              <div class="message-info">
+                <p class="user-name">Smith</p>
+                <p class="user-message">dasdasdsadasdasdasdasdsadsaadasdasdsadasdsadasdadaasdsadasdsadasdsasdadaa
+                  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadasdasdsadasdasdasdasdsadsaadasdasdsa
+                  dasdsadasdadaasdsadasdsadasdsasdadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </p>
+              </div>
+            </div>
+            <p class="message-time">12.00pm</p>
+          </div>
+          <div class="message-div">
+            <div class="message-div__body">
+              <img src="/images/users/defaultDP.png" alt="user-icon">
+              <div class="message-info">
+                <p class="user-name">Smith</p>
+                <p class="user-message">dasdasdsadasdasdasdasdsadsaadasdasdsadasdsadasdadaasdsadasdsadasdsasdadaa
+                  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadasdasdsadasdasdasdasdsadsaadasdasdsa
+                  dasdsadasdadaasdsadasdsadasdsasdadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </p>
+              </div>
+            </div>
+            <p class="message-time">12.00pm</p>
+          </div>
+          <div class="message-div">
+            <div class="message-div__body">
+              <img src="/images/users/defaultDP.png" alt="user-icon">
+              <div class="message-info">
+                <p class="user-name">Smith</p>
+                <p class="user-message">dasdasdsadasdasdasdasdsadsaadasdasdsadasdsadasdadaasdsadasdsadasdsasdadaa
+                  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadasdasdsadasdasdasdasdsadsaadasdasdsa
+                  dasdsadasdadaasdsadasdsadasdsasdadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </p>
+              </div>
+            </div>
+            <p class="message-time">12.00pm</p>
+          </div>
+          <div class="message-div">
+            <div class="message-div__body">
+              <img src="/images/users/defaultDP.png" alt="user-icon">
+              <div class="message-info">
+                <p class="user-name">Smith</p>
+                <p class="user-message">dasdasdsadasdasdasdasdsadsaadasdasdsadasdsadasdadaasdsadasdsadasdsasdadaa
+                  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadasdasdsadasdasdasdasdsadsaadasdasdsa
+                  dasdsadasdadaasdsadasdsadasdsasdadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                </p>
+              </div>
+            </div>
+            <p class="message-time">12.00pm</p>
+          </div>
+
+          <div class="bottom-bar">
+            <form>
+              <input type="text" name="message" id="messageText" placeholder="Type your message">
+              <button type="submit" class="btn btn-primary">Send</button>
+              <button type="submit" class="btn btn-primary">Location</button>
+            </form>
+          </div>
         </div>
     </div>
 
