@@ -11,7 +11,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-bottom:1px solid black;
+    border-bottom:1px solid rgb(61, 80, 255);
     padding:10px 20px;
 }
 
@@ -32,7 +32,7 @@ body{
     padding-bottom:20px;
     flex:1;
     background-color: rgb(255, 255, 255);
-    border-right: 1px solid black;
+    border-right: 1px solid rgb(61, 80, 255);
     height:100vh;
     z-index: 100;
 }
@@ -85,6 +85,7 @@ body{
     background-color: rgb(243, 243, 243);
     height:100vh;
     padding:20px 20px;
+    padding-bottom:100px;
     overflow-y:scroll;
 }
 
@@ -96,7 +97,7 @@ body{
 .message-div__body{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: start;
     padding-bottom:5px;
 }
 
