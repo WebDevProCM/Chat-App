@@ -161,6 +161,40 @@ body{
 .bottom-bar form button{
     margin-left:5px;
 }
+
+.row{
+    height: 100vh;
+}
+
+.login-left-div{
+    text-align: center;
+    background-color: black;
+    color:white;
+}
+
+.login-left-div img{
+    margin-top:100px;
+}
+
+.login-right-div{
+    margin: auto;
+    font-weight: bold;
+}
+
+.login-right-div form{
+    margin: auto;
+    width:50%;
+}
+
+.login-right-div h2{
+    text-align: center;
+    margin-bottom:20px;
+}
+
+.error{
+    color: red;
+}
+
 @media only screen and (max-width: 991px){
     .bottom-bar{
         left:170px;

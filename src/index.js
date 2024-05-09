@@ -3,8 +3,7 @@ const path = require("path");
 const express = require("express");
 const socketio = require("socket.io");
 const badWords = require("bad-words");
-const getMessage = require("./utilis/getMessage.js");
-const generateMessage = require("./utilis/getMessage.js");
+const getTools = require("./utilis/getTools.js");
 
 const app = express();
 const server = http.createServer(app);
@@ -16,23 +15,46 @@ app.use(express.static(publicDirectory));
 
 io.on("connection", (socket) =>{
 
-    socket.emit("message", generateMessage("Welcome user!"));
-    socket.broadcast.emit("message", generateMessage("User has joined!"));
+    socket.on("room", (roomData, callback) =>{
+        const user = getTools.addUser(roomData.username, roomData.room, socket.id);
+        if(user.error){
+            return callback(user.error);
+        }
+
+        socket.join(user.room);
+        socket.emit("message", getTools.generateMessage(`Welcome ${user.username}!`, "System"));
+        socket.broadcast.to(user.room).emit("message", getTools.generateMessage(`${user.username} has joined!`, "System"));
+        callback();
+    })
 
     socket.on("message", (message, callback) =>{
+        const user = getTools.getUserById(socket.id);
+        if(user.error){
+            return callback(user.error);
+        }
         const badWordsStatus = new badWords();
         if(badWordsStatus.isProfane(message)){
             return callback("Your message contains inappropriate words!");
         }
 
-        io.emit("message", getMessage(message));
+        io.to(user.room).emit("message", getTools.generateMessage(message, user.username));
         callback();
     });
 
     socket.on("location", (location, callback) =>{
-        io.emit("location", generateMessage(location));
+        const user = getTools.getUserById(socket.id);
+        if(user.error){
+            return callback(user.error);
+        }
+        io.to(user.room).emit("location", getTools.generateMessage(location, user.username));
         callback();
     });
+
+    socket.on("disconnect", () =>{
+        const user = getTools.getUserById(socket.id);
+        getTools.removeUser(user.username, user.room);
+        io.emit("message", getTools.generateMessage(`${user.username} has left!`, "System"));
+    })
 });
 
 server.listen(process.env.PORT, () =>{

@@ -5,6 +5,17 @@ const sendMessageBtn = $("#sendMessage");
 const sendLocationBtn = $("#sendLocation");
 const messageBody = document.querySelector(".chat_body");
 
+const roomData = Qs.parse(location.search, {ignoreQueryPrefix: true});
+
+socket.emit("room", roomData, (error) =>{
+    if(error){
+        showError(error);
+        return setTimeout(() =>{
+            window.location.replace("/");
+        }, 1000)
+    }
+})
+
 socket.on("message", (message) =>{
     messageBody.insertAdjacentHTML("beforeend", generateMessageHTML(message));
 });
@@ -61,7 +72,7 @@ const generateMessageHTML = (message) =>{
             <div class="message-div__body">
                 <img src="/images/users/defaultDP.png" alt="user-icon">
                 <div class="message-info">
-                    <p class="user-name">Smith</p>
+                    <p class="user-name">${message.username}</p>
                     <p class="user-message"> ${message.message} </p>
                 </div>
             </div>
