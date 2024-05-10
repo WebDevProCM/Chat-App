@@ -1,9 +1,10 @@
 const socket =  io();
 const userMessage = $("#messageText");
-const form = $("form");
+const form = $(".message-form");
 const sendMessageBtn = $("#sendMessage");
 const sendLocationBtn = $("#sendLocation");
 const messageBody = document.querySelector(".chat_body");
+const sidebar = document.querySelector(".navbar-nav");
 
 const roomData = Qs.parse(location.search, {ignoreQueryPrefix: true});
 
@@ -23,6 +24,14 @@ socket.on("message", (message) =>{
 socket.on("location", (location) =>{
     messageBody.insertAdjacentHTML("beforeend", generateLocationHTML(location));
 });
+
+socket.on("sidebarData", (data) =>{
+    let sidebarContent ="";
+    data.forEach((roomData) =>{
+        sidebarContent = sidebarContent + generateSidebarHTML(roomData);
+    });
+    sidebar.innerHTML = sidebarContent;
+})
 
 form.on("submit", (event) =>{
     event.preventDefault();
@@ -96,3 +105,25 @@ const generateLocationHTML = (location) =>{
         </div>
     `
 }
+
+const generateSidebarHTML = (sidebarData) =>{
+    return `
+        <li class="nav-item">
+            <div class="user-chat">
+            <div class="user-chat-div">
+                <img src="/images/users/defaultDP.png" alt="user-profile-picture">
+                <h5>${sidebarData.username}</h5>
+            </div>
+            <p>Joined at ${sidebarData.time}</p>
+            </div>
+        </li>
+    `
+}
+
+const searchContent = `<li class="nav-item search">
+    <form class="d-flex" role="search">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" onkeyup="searchUser()">
+    </form>
+    </li>`
+
+    // <button class="btn btn-outline-primary" type="submit">Search</button>

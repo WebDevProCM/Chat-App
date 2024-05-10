@@ -24,6 +24,9 @@ io.on("connection", (socket) =>{
         socket.join(user.room);
         socket.emit("message", getTools.generateMessage(`Welcome ${user.username}!`, "System"));
         socket.broadcast.to(user.room).emit("message", getTools.generateMessage(`${user.username} has joined!`, "System"));
+
+        const users = getTools.getUserByRoom(roomData.room);
+        io.to(user.room).emit("sidebarData", users);
         callback();
     })
 
@@ -54,6 +57,9 @@ io.on("connection", (socket) =>{
         const user = getTools.getUserById(socket.id);
         getTools.removeUser(user.username, user.room);
         io.emit("message", getTools.generateMessage(`${user.username} has left!`, "System"));
+
+        const users = getTools.getUserByRoom(user.room);
+        socket.broadcast.to(user.room).emit("sidebarData", users);
     })
 });
 

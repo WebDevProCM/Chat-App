@@ -78,6 +78,7 @@ body{
 .user-chat p{
     font-size:0.7rem;
     font-weight: bold;
+    width:100%;
 }
 
 .chat_body{

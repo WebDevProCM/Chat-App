@@ -22,7 +22,8 @@ const addUser = (name, room, id) =>{
     const user = {
         id: id,
         username: name,
-        room: room
+        room: room,
+        time: new Date().toLocaleTimeString()
     }
     file.push(user);
     saveFile(file);
@@ -38,6 +39,17 @@ const getUserById = (id) =>{
         return {error: "User not found!"}
     }
     return user;
+}
+
+const getUserByRoom = (room) =>{
+    const file = loadFile();
+    const users = file.filter((user) =>{
+        return user.room == room;
+    })
+    if(!users){
+        return {error: "User not found!"}
+    }
+    return users;
 }
 
 const removeUser = (name, room) =>{
@@ -67,5 +79,6 @@ module.exports = {
     generateMessage: generateMessage,
     addUser: addUser,
     getUserById: getUserById,
+    getUserByRoom: getUserByRoom,
     removeUser: removeUser
 };
